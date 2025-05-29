@@ -219,6 +219,7 @@ async def transfer_messages():
     logger.info("Client started")
 
     for source_chat_id in source_destination_mapping.keys():
+        batch_count = 0
         dest_channels = source_destination_mapping.get(source_chat_id, [])
         if not dest_channels:
             logger.warning(f"No destination channels for source {source_chat_id}")
