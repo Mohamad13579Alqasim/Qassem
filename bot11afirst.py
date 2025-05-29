@@ -33,7 +33,7 @@ GIST_FILE_NAME = 'datamohamedmain.json'
 
 
 # Batch processing settings
-BATCH_SIZE = 100
+BATCH_SIZE = 50
 BATCH_PAUSE = 30  # Pause between batches to avoid rate limits
 
 # Initialize Telethon client
