@@ -95,7 +95,7 @@ async def run_bot2():
         pass
 
 def main():
-    server
+    server()
     loop = asyncio.get_event_loop()
     task1 = asyncio.ensure_future(run_bot1())
     task2 = asyncio.ensure_future(run_bot2())
