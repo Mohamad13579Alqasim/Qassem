@@ -13,3 +13,4 @@ telethon
 pyromod
 requests 
 langdetect
+pytz
