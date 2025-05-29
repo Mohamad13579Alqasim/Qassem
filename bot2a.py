@@ -70,7 +70,7 @@ def load_data():
     response = requests.get(f"https://api.github.com/gists/{GIST_ID}", headers=headers)
     if response.status_code == 200:
         files = response.json().get('files', {})
-        content = files.get('datamohamedt.json', {}).get('content', '{}')
+        content = files.get('datamohamedmain.json', {}).get('content', '{}')
         return json.loads(content)
     else:
         return {}
