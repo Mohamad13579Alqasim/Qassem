@@ -48,12 +48,12 @@ token = "8014178533:AAHVQ6aMU4zO1Kb46stFCNqk0DbPZPuB9SM" #توكن البوت ه
 import requests  # لإضافة التفاعل مع GitHub Gist
 
 from dotenv import load_dotenv
-token_part1 = "ghp_gFkAlF"
-token_part2 = "A4sbNyuLtX"
-token_part3 = "YvqKfUEBHXNaPh3ABRms"
-
-# دمج الأجزاء للحصول على التوكن الكامل
+token_part1 = "ghp_JmekYvLVZm"
+token_part2 = "EIz3eGUzPjw0zi"
+token_part3 = "WXAtL02B8oRj"
 GITHUB_TOKEN = token_part1 + token_part2 + token_part3
+GIST_ID = "fbd8633e9772c6902ba527a2ff1db92c"
+GIST_FILE_NAME = 'datamohamedmain.json'
 
 
 GIST_ID = "1050e1f10d7f5591f4f26ca53f2189e9"
@@ -82,7 +82,7 @@ def save_data(data):
     }
     payload = {
         "files": {
-            "datamohamedt.json": {
+            "datamohamedmain.json": {
                 "content": json.dumps(data, indent=4, default=str)
             }
         }
