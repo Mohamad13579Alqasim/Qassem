@@ -24,12 +24,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # GitHub Gist credentials
-token_part1 = "ghp_gFkAlF"
-token_part2 = "A4sbNyuLtX"
-token_part3 = "YvqKfUEBHXNaPh3ABRms"
+token_part1 = "ghp_JmekYvLVZm"
+token_part2 = "EIz3eGUzPjw0zi"
+token_part3 = "WXAtL02B8oRj"
 GITHUB_TOKEN = token_part1 + token_part2 + token_part3
-GIST_ID = "1050e1f10d7f5591f4f26ca53f2189e9"
-GIST_FILE_NAME = 'datamohamedt.json'
+GIST_ID = "fbd8633e9772c6902ba527a2ff1db92c"
+GIST_FILE_NAME = 'datamohamedmain.json'
+
 
 # Batch processing settings
 BATCH_SIZE = 100
