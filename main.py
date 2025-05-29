@@ -80,6 +80,7 @@ async def run_bot2():
         logger.info("Bot 2 started")
         while True:
             await asyncio.sleep(50)
+            """
     except errors.AuthKeyDuplicatedError:
         logger.error("Bot 2 session is duplicated. Deleting session files and restarting.")
         time.sleep(20)
@@ -88,6 +89,7 @@ async def run_bot2():
         if os.path.exists(session_file2):
             os.remove(session_file2)
         restart_program()
+        """
     except Exception as e:
         logger.error(f"Error in bot2: {str(e)}")
         pass
