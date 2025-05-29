@@ -1,4 +1,3 @@
-
 from flask import Flask
 from threading import Thread
 
@@ -14,3 +13,4 @@ def run():
 def server():
     t = Thread(target=run)
     t.start()
+  
