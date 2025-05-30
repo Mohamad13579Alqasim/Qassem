@@ -107,7 +107,7 @@ source_destination_mapping = data.get("source_destination_mapping", {})
 
 
 bot_token = "8014178533:AAHVQ6aMU4zO1Kb46stFCNqk0DbPZPuB9SM"
-app2 = Client('session636', api_id, api_hash,bot_token=bot_token)
+app2 = Client('session64436', api_id, api_hash,bot_token=bot_token)
 
 CHANNEL = "@tt66xxxn" # قناه الاشتراك 
 bot_token = "8014178533:AAHVQ6aMU4zO1Kb46stFCNqk0DbPZPuB9SM" # بوت التوكن المستخدم في الاشتراك
