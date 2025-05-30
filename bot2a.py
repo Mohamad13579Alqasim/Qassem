@@ -56,7 +56,6 @@ GIST_ID = "fbd8633e9772c6902ba527a2ff1db92c"
 GIST_FILE_NAME = 'datamohamedmain.json'
 
 
-GIST_ID = "1050e1f10d7f5591f4f26ca53f2189e9"
 
 
 
