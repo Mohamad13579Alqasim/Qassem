@@ -33,7 +33,7 @@ GIST_FILE_NAME = 'datamohamedmain.json'
 
 
 # Batch processing settings
-BATCH_SIZE = 100
+BATCH_SIZE = 50
 BATCH_PAUSE = 30  # Pause between batches to avoid rate limits
 
 # Initialize Telethon client
@@ -237,6 +237,7 @@ async def transfer_messages():
         media_group = {}
         last_group_id = None
         last_topic_ids = {}
+        current_message_id = last_message_id  # Track the latest processed message ID
 
         try:
             async for message in client.iter_messages(source_chat_id, reverse=True, min_id=last_message_id):
@@ -304,7 +305,8 @@ async def transfer_messages():
                                         logger.error(f"Error transferring media group {group_id} to {dest_chat_id}: {str(e)}")
                                         continue
 
-                            await save_progress(source_chat_id, group_messages[-1].id)
+                            current_message_id = group_messages[-1].id  # Update to the last message ID in the group
+                            await save_progress(source_chat_id, current_message_id)  # Save progress for the group
                             batch_count += 1
                             del media_group[group_id]
 
@@ -347,14 +349,15 @@ async def transfer_messages():
                             await asyncio.sleep(5)
                             continue
 
-                    await save_progress(source_chat_id, message.id)
+                    current_message_id = message.id  # Update to the current message ID
+                    await save_progress(source_chat_id, current_message_id)  # Save progress for the message
                     batch_count += 1
 
                     if batch_count % BATCH_SIZE == 0:
                         logger.info(f"Processed {batch_count} messages for source {source_chat_id}. Pausing for {BATCH_PAUSE} seconds.")
                         await asyncio.sleep(BATCH_PAUSE)
                     else:
-                        await asyncio.sleep(10)
+                        await asyncio.sleep(5)  # Reduced sleep for non-batch pauses
 
                 except Exception as e:
                     logger.error(f"Error processing message ID {message.id} for source {source_chat_id}: {str(e)}")
@@ -364,13 +367,12 @@ async def transfer_messages():
         except Exception as e:
             logger.error(f"Error iterating messages for source {source_chat_id}: {str(e)}")
 
-    # Save final progress
-    if batch_count > 0:
-        await save_progress(source_chat_id, last_message_id + batch_count, force=True)
+        # Save final progress
+        if batch_count > 0:
+            await save_progress(source_chat_id, current_message_id, force=True)
 
     await client.disconnect()
-    logger.info("Client disconnected")
-
+    logger.info("Client disconnected")    
 
 
 # Initialize scheduler
